@@ -22,3 +22,9 @@ pipeline.
 **Priority**: not blocking Checkpoint 2-4 (we're not matching on
 manufacturer in this session). Resolve before Stage 2c (aircraft ER
 resolver) so the resolver has clean manufacturer signal.
+
+"Canonical operator coverage via certificate_holder" is structurally capped at ~1-3% because the charter industry registers aircraft to trustees by design. The resolvable-via-registry population is small-Part-135-direct-registrations (a minority). Getting to meaningful operator→aircraft coverage requires:
+
+- Track 1 Stage 3: expand operators canonical via FAA GENOT, DOT Part 295, OpSpec D085 ingestion (adds the airlines we correctly didn't match)
+- Stage 2c: trustee-unmask pathway (ADS-B callsign patterns, charter operator self-disclosure, OpSpec D085 operator fleets)
+- ARGUS/Wyvern aircraft lists (already show some operator→aircraft mapping, underused)
