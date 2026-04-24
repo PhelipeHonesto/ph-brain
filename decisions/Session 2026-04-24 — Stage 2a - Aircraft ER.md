@@ -28,3 +28,36 @@ resolver) so the resolver has clean manufacturer signal.
 - Track 1 Stage 3: expand operators canonical via FAA GENOT, DOT Part 295, OpSpec D085 ingestion (adds the airlines we correctly didn't match)
 - Stage 2c: trustee-unmask pathway (ADS-B callsign patterns, charter operator self-disclosure, OpSpec D085 operator fleets)
 - ARGUS/Wyvern aircraft lists (already show some operator→aircraft mapping, underused)
+## Historical ER — the differentiator
+
+OSA builds not just "who operates this aircraft now" but the full temporal
+graph: who WAS this operator, what DID they fly, when did they rebrand,
+merge, or surrender certificates. The primitives are already in place
+(canonical IDs, identities, aliases, temporal links with DATE granularity,
+close-then-insert, provenance on every claim) — this section names the
+thesis so future sessions don't accidentally design around "current state"
+assumptions that break historical queries.
+
+Scope:
+- Operator lineage: rebrands, mergers, acquisitions, cert transfers/surrenders,
+  formations, dissolutions
+- Aircraft ownership history: legal_owner + operator + trustee role transitions,
+  sourced from faa_registry_changes (US) + international registries (Stage 9+)
+- Relationship timeline: operator-FBO, operator-person roles, person-person
+  corporate relationships — all temporally bounded
+
+Missing schema (future work, Track 1 Stage 3 or Stage 2c):
+- canonical.operator_events — the lineage table for operator-level corporate events
+- Temporal semantics for canonical.operators (currently treats operator as static
+  entity with updated attributes; historical ER needs operator as an entity whose
+  IDENTITY has a lineage across rebrands)
+
+Architectural commitment: no table in canonical schema should be designed
+with "current state only" assumptions. Every relationship, identity,
+attribute either ships temporal from day one, or has a clear migration
+path to temporal. The worked example in docs/temporal-link-pattern.md
+is the reference shape.
+
+Competitive implication: historical ER is the structural moat. JETNET/ARGUS/
+Wyvern/Cirium all store current state. None can answer "what was this
+operator 5 years ago" with provenance. OSA can.
