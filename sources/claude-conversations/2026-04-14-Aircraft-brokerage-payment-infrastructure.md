@@ -1,11 +1,11 @@
 ---
 title: Aircraft brokerage payment infrastructure
 created: 2026-04-14T05:15:37.734039Z
-updated: 2026-04-14T05:16:32.134798Z
+updated: 2026-04-18T20:58:28.261183Z
 uuid: f4eb9783-91e6-40b8-b463-24c19294709c
 source: claude-conversation
 type: source
-message_count: 4
+message_count: 6
 ---
 
 # Aircraft brokerage payment infrastructure
@@ -85,5 +85,32 @@ The entire industry runs on aviation escrow companies. The main players:
 **Financing side:** AOPA Finance, Global Jet Capital, TVPX, and a handful of aviation-specific lenders hold the paper. They wire directly into escrow at close. Standard stuff — no embedded fintech, no API.
 
 **The gap OSA Aircraft could exploit long-term:** nobody owns the financial coordination layer for the transaction. You could theoretically build a closing coordination tool that sits on top of escrow — document tracking, lien search status, wire confirmation, FAA filing status — all in one dashboard. Acquisition advisory clients would pay for that alone.
+
+---
+
+## Phelipe
+
+Wha is the dynamic pricing amalfi one says they do?
+
+---
+
+## Claude
+
+The user is asking about "Amalfi" - a company that claims to do dynamic pricing in aviation/aircraft brokerage. Let me search for this.
+```
+This block is not supported on your current device yet.
+```
+
+Now I have a clear picture of what Amalfi's "dynamic pricing" actually is. Let me summarize it honestly for Phelipe.Here's the honest read on what Amalfi's "dynamic pricing" actually is:
+
+**What they claim:** Real-time, market-driven pricing that saves clients money versus fixed rates. They reported that 99.9% of Amalfi One Cardholder flights in 2024 used dynamic pricing, with the CEO framing it as "real-time, competitive rates" providing "greater transparency and value."
+
+**What it actually is:** Standard broker spot-market sourcing with a marketing wrapper. The Amalfi One Jet Card uses a "two-pronged pricing model" — capped hourly rates plus dynamic pricing. The "dynamic" part just means they're quoting live operator prices instead of locking you into a fixed card rate. Every broker does this on on-demand charter. They branded the absence of a fixed price as a feature.
+
+The price changes based on real-time factors like aircraft availability, demand, and booking time — which can offer competitive rates if your schedule is flexible, but leads to cost unpredictability.
+
+**The tell:** Amalfi Jets is a charter broker sourcing aircraft from third-party charter operators. They don't own or operate aircraft. So "dynamic pricing" is just them passing through operator spot pricing and calling it innovation.
+
+**OSA positioning implication:** This is a vulnerability, not a moat. Their clients are trading price certainty for potential savings on a variable they can't control. OSA's transparent cost anatomy model — showing *why* a price is what it is — is actually more defensible than "trust us, dynamic is better." Amalfi is marketing opacity as sophistication.
 
 ---
